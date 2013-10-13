@@ -42,18 +42,18 @@ module Bitly
         return Bitly::V3::Url.new(self, response['data'])
       end
 
+      def clicks(short_url, opts = {})
+        @link = CGI.escape(short_url)
+        query = { :link => @link }.merge(opts)
+        response = get('/link/link_clicks', :query => query)
+        return Bitly::V3::LinkClicks.new(response['data'])
+      end
+
       # Expands either a hash, short url or array of either.
       #
       # Returns the results in the order they were entered
       def expand(input)
         get_method(:expand, input)
-      end
-
-      # Expands either a hash, short url or array of either and gets click data too.
-      #
-      # Returns the results in the order they were entered
-      def clicks(input)
-        get_method(:clicks, input)
       end
 
       # Like expand, but gets the title of the page and who created it

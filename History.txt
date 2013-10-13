@@ -1,3 +1,9 @@
+=== 0.9.1 / 2013-10-13
+
+* 1 minor enhancement
+
+  * Added updated link/link_clicks support
+
 === 0.9.0 / 2013-4-28
 
 * 2 major updates
