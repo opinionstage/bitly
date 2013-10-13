@@ -43,6 +43,7 @@ module Bitly
       end
 
       def clicks(short_url, opts = {})
+        base_uri 'https://api-ssl.bit.ly/v3/'
         @link = CGI.escape(short_url)
         query = { :link => @link }.merge(opts)
         response = get('/link/clicks', :query => query)
