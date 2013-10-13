@@ -45,7 +45,7 @@ module Bitly
       def clicks(short_url, opts = {})
         @link = CGI.escape(short_url)
         query = { :link => @link }.merge(opts)
-        response = get('/link/link_clicks', :query => query)
+        response = get('/link/clicks', :query => query)
         return Bitly::V3::LinkClicks.new(response['data'])
       end
 
